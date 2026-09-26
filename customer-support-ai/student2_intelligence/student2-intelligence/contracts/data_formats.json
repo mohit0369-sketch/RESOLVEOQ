@@ -1,0 +1,210 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "contract_version": "1.0.0",
+  "module": "student2-intelligence",
+  "description": "Integration contract for the Student 2 RESOLVE IQ Intelligence Engine. Student 3 and Student 4 consume the OUTPUT schema only; they never need to read Student 2's Python internals.",
+  "allowed_values": {
+    "issue_type": [
+      "Damaged Product",
+      "Late Delivery",
+      "Refund",
+      "Payment Problem",
+      "Wrong Product",
+      "Missing Product",
+      "Account Problem",
+      "Other"
+    ],
+    "sentiment": ["Positive", "Neutral", "Negative"],
+    "severity": ["Low", "Medium", "High"],
+    "cluster": [
+      "Damaged Products",
+      "Late Delivery",
+      "Refund Problems",
+      "Payment Problems",
+      "Wrong Products",
+      "Missing Products",
+      "Account Problems",
+      "General Inquiries",
+      "Unclustered"
+    ]
+  },
+  "input_schema": {
+    "description": "Payload accepted by main.analyze_complaints(complaints). Student 1's backend forwards raw complaints in exactly this shape.",
+    "type": "array",
+    "items": {
+      "type": "object",
+      "required": ["text"],
+      "properties": {
+        "complaint_id": {
+          "type": "string",
+          "description": "Unique complaint identifier. Optional but STRONGLY recommended - the engine generates 'idx-<n>' when absent, which breaks cross-system joins.",
+          "example": "C001"
+        },
+        "text": {
+          "type": "string",
+          "description": "Raw, unprocessed customer complaint text. REQUIRED. null/empty is tolerated and reported in diagnostics.warnings.",
+          "example": "My headphones arrived damaged"
+        },
+        "customer_id": {
+          "type": "string",
+          "description": "Synthetic/opaque customer identifier. No personal data is stored by Student 2.",
+          "example": "U101"
+        },
+        "order_id": {
+          "type": "string",
+          "description": "Order identifier used to join complaint intelligence back to orders.",
+          "example": "O501"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date",
+          "description": "Complaint date (ISO-8601, YYYY-MM-DD). Drives previous/current period trend split. Unparseable values are excluded from trend maths and reported in diagnostics.warnings.",
+          "example": "2026-09-01"
+        }
+      }
+    }
+  },
+  "output_schema": {
+    "description": "Return value of main.analyze_complaints(complaints). Guaranteed JSON-serialisable (json.dumps(result) always succeeds).",
+    "type": "object",
+    "properties": {
+      "analyzed_complaints": {
+        "type": "array",
+        "description": "One enriched record per input complaint, in input order.",
+        "items": {
+          "type": "object",
+          "properties": {
+            "complaint_id": {"type": "string"},
+            "clean_text": {"type": "string", "description": "Preprocessed text (lowercase, punctuation removed, whitespace collapsed)."},
+            "issue_type": {"type": "string", "description": "See allowed_values.issue_type."},
+            "sentiment": {"type": "string", "description": "See allowed_values.sentiment."},
+            "severity": {"type": "string", "description": "See allowed_values.severity. PROJECT RULES, not universal severity."},
+            "cluster": {"type": "string", "description": "Human-readable semantic cluster name derived from the dominant issue_type of the cluster."},
+            "cluster_id": {"type": "integer", "description": "Raw clustering label. -1 means noise/unclustered."},
+            "embedding": {
+              "type": "array",
+              "items": {"type": "number"},
+              "description": "L2-normalised sentence embedding. Length = metadata.embedding_dim (384 for all-MiniLM-L6-v2). Omit with include_embeddings=false."
+            },
+            "customer_id": {"type": ["string", "null"]},
+            "order_id": {"type": ["string", "null"]},
+            "created_at": {"type": ["string", "null"]}
+          }
+        }
+      },
+      "trends": {
+        "type": "array",
+        "description": "Per-issue volume and period-over-period growth, sorted by current volume descending.",
+        "items": {
+          "type": "object",
+          "properties": {
+            "cluster_name": {"type": "string", "description": "Cluster name (label_key='auto'/'cluster') or issue_type (label_key='issue_type')."},
+            "count": {"type": "integer", "description": "Complaints in the CURRENT period."},
+            "previous_count": {"type": "integer", "description": "Complaints in the previous period."},
+            "current_count": {"type": "integer", "description": "Same as count; explicit for clarity."},
+            "growth_percent": {
+              "type": "number",
+              "description": "((current - previous) / previous) * 100, rounded to 1 decimal. previous=0 & current=0 -> 0.0; previous=0 & current>0 -> 100.0."
+            }
+          }
+        }
+      },
+      "emerging_issues": {
+        "type": "array",
+        "description": "Subset of trends whose growth_percent >= metadata.emerging_growth_threshold AND current_count >= metadata.emerging_min_count.",
+        "items": {
+          "type": "object",
+          "properties": {
+            "cluster_name": {"type": "string"},
+            "count": {"type": "integer"},
+            "previous_count": {"type": "integer"},
+            "current_count": {"type": "integer"},
+            "growth_percent": {"type": "number"},
+            "growth_threshold": {"type": "number", "description": "Threshold that was applied for this run."},
+            "reason": {"type": "string", "description": "Human-readable explanation, safe to show in a dashboard tooltip."}
+          }
+        }
+      },
+      "clusters": {
+        "type": "array",
+        "description": "Cluster summary for dashboards and legends.",
+        "items": {
+          "type": "object",
+          "properties": {
+            "cluster_id": {"type": "integer"},
+            "cluster_name": {"type": "string"},
+            "size": {"type": "integer"}
+          }
+        }
+      },
+      "metadata": {
+        "type": "object",
+        "properties": {
+          "total_complaints": {"type": "integer"},
+          "processed_complaints": {"type": "integer"},
+          "periods_analyzed": {"type": "integer", "description": "Number of distinct calendar months seen (2 = previous + current)."},
+          "embedding_backend": {"type": "string", "description": "sentence-transformers | hashing-bow | null when embeddings failed."},
+          "embedding_dim": {"type": "integer"},
+          "clustering_backend": {"type": "string", "description": "hdbscan | sklearn-hdbscan | agglomerative | too-few-samples | null."},
+          "sentiment_backend": {"type": "string", "description": "vader | fallback-lexicon."},
+          "emerging_growth_threshold": {"type": "number"},
+          "emerging_min_count": {"type": "integer"},
+          "trend_label_key": {"type": "string"}
+        }
+      },
+      "diagnostics": {
+        "type": "object",
+        "description": "Degradation is reported, never silently swallowed.",
+        "properties": {
+          "warnings": {"type": "array", "items": {"type": "string"}, "description": "Recoverable per-record or backend issues (missing optional fields, unparseable dates, backend fallbacks)."},
+          "errors": {"type": "array", "items": {"type": "string"}, "description": "Stage failures that degraded the output (e.g. clustering unavailable)."}
+        }
+      }
+    }
+  },
+  "integration_notes": {
+    "student_1_backend": {
+      "summary": "Student 1 owns the API and authentication. It forwards raw complaints to main.analyze_complaints() and returns the resulting dict to Student 3 and Student 4.",
+      "how_to_call": "from main import analyze_complaints, load_complaints, save_output",
+      "recommended_architecture": "Run Student 2 as an in-process module or a small HTTP worker (POST /analyze with the input_schema, response = output_schema). Keep it stateless."
+    },
+    "student_3_agent_consumes": [
+      "analyzed_complaints[].complaint_id",
+      "analyzed_complaints[].clean_text",
+      "analyzed_complaints[].issue_type",
+      "analyzed_complaints[].sentiment",
+      "analyzed_complaints[].severity",
+      "analyzed_complaints[].cluster",
+      "analyzed_complaints[].customer_id",
+      "analyzed_complaints[].order_id",
+      "emerging_issues[].cluster_name",
+      "emerging_issues[].growth_percent",
+      "emerging_issues[].reason",
+      "metadata.*",
+      "diagnostics.*"
+    ],
+    "student_3_agent_should_not": [
+      "Read Student 2's Python source or import classification/severity internals.",
+      "Re-implement severity, classification or trend maths - it is already done here.",
+      "Write to Student 2's data files."
+    ],
+    "student_4_dashboard_visualizes": [
+      "analyzed_complaints[] -> filtered/paginated complaint table, severity badges, sentiment chips",
+      "trends[] -> bar chart (count per cluster_name) and line chart (growth_percent)",
+      "emerging_issues[] -> alert cards / emerging-issue banner with the 'reason' text",
+      "clusters[] -> donut/pie chart of cluster size and legend names",
+      "analyzed_complaints[].embedding -> optional 2D projection (PCA/UMAP/t-SNE) scatter plot",
+      "metadata.periods_analyzed, metadata.total_complaints -> KPI tiles"
+    ],
+    "student_4_dashboard_should_not": [
+      "Run embeddings, clustering or trend maths in the browser.",
+      "Depend on embedding vectors for basic views - they are optional (include_embeddings=false omits them)."
+    ],
+    "field_ownership": {
+      "complaint_id_customer_id_order_id_created_at": "Passed through from Student 1 unchanged.",
+      "clean_text_issue_type_sentiment_severity_cluster_cluster_id_embedding": "Owned and produced by Student 2.",
+      "trends_emerging_issues_clusters_metadata_diagnostics": "Owned and produced by Student 2."
+    },
+    "json_validity": "The engine asserts json.dumps(output, allow_nan=False) succeeds before returning; numpy scalars/arrays are converted to native Python types."
+  }
+}

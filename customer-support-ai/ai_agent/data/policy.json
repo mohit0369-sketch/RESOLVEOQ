@@ -1,0 +1,51 @@
+{
+  "version": "1.0",
+  "default_action": "Human Review",
+  "rules": [
+    {
+      "issue_type": "Damaged Product",
+      "action": "Replacement",
+      "reason": "A damaged product can be handled through the replacement process when the required information is available.",
+      "required_information": [
+        "customer_id",
+        "order_id"
+      ]
+    },
+    {
+      "issue_type": "Late Delivery",
+      "action": "Delivery Investigation",
+      "reason": "The delivery status should be investigated before giving the customer a final resolution.",
+      "required_information": [
+        "customer_id",
+        "order_id"
+      ]
+    },
+    {
+      "issue_type": "Refund Request",
+      "action": "Refund Review",
+      "reason": "The refund request requires verification of the order and payment information.",
+      "required_information": [
+        "customer_id",
+        "order_id"
+      ]
+    },
+    {
+      "issue_type": "Wrong Item",
+      "action": "Replacement",
+      "reason": "A wrong-item complaint can be handled through the replacement process after order verification.",
+      "required_information": [
+        "customer_id",
+        "order_id"
+      ]
+    },
+    {
+      "issue_type": "Missing Item",
+      "action": "Order Investigation",
+      "reason": "The order should be investigated before a final resolution is communicated.",
+      "required_information": [
+        "customer_id",
+        "order_id"
+      ]
+    }
+  ]
+}

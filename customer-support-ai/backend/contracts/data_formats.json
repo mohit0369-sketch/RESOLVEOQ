@@ -1,0 +1,40 @@
+{
+  "customer": {
+    "customer_id": "U101",
+    "name": "Rahul",
+    "email": "rahul@example.com",
+    "phone": "9876543210"
+  },
+  "order": {
+    "order_id": "O501",
+    "customer_id": "U101",
+    "status": "delivered",
+    "amount": 1499,
+    "item": "Headphones",
+    "order_date": "2026-09-20T00:00:00"
+  },
+  "complaint": {
+    "complaint_id": "C001",
+    "customer_id": "U101",
+    "order_id": "O501",
+    "text": "My headphones arrived damaged",
+    "timestamp": "2026-09-25T10:30:00",
+    "status": "open"
+  },
+  "case": {
+    "case_id": "CASE001",
+    "complaint_id": "C001",
+    "status": "investigating",
+    "assigned_to": "support_agent",
+    "created_at": "2026-09-25T10:35:00"
+  },
+  "resolution": {
+    "resolution_id": "R001",
+    "case_id": "CASE001",
+    "issue_type": "damaged_item",
+    "recommendation": "replace_item",
+    "confidence": 0.87,
+    "escalation": false,
+    "created_at": "2026-09-25T11:00:00"
+  }
+}

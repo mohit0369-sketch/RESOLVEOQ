@@ -1,0 +1,541 @@
+[
+  {
+    "complaint_id": "C001",
+    "text": "I received a smashed laptop in the box please help",
+    "customer_id": "U101",
+    "order_id": "O501",
+    "created_at": "2026-08-08"
+  },
+  {
+    "complaint_id": "C002",
+    "text": "The phone case I received is broken",
+    "customer_id": "U102",
+    "order_id": "O502",
+    "created_at": "2026-08-22"
+  },
+  {
+    "complaint_id": "C003",
+    "text": "I received a smashed backpack in the box asap",
+    "customer_id": "U103",
+    "order_id": "O503",
+    "created_at": "2026-08-02"
+  },
+  {
+    "complaint_id": "C004",
+    "text": "My laptop arrived damaged.",
+    "customer_id": "U104",
+    "order_id": "O504",
+    "created_at": "2026-08-20"
+  },
+  {
+    "complaint_id": "C005",
+    "text": "My backpack arrived damaged.",
+    "customer_id": "U105",
+    "order_id": "O505",
+    "created_at": "2026-08-14"
+  },
+  {
+    "complaint_id": "C006",
+    "text": "The monitor I received is broken",
+    "customer_id": "U106",
+    "order_id": "O506",
+    "created_at": "2026-08-26"
+  },
+  {
+    "complaint_id": "C007",
+    "text": "There are scratches all over my new headphones",
+    "customer_id": "U107",
+    "order_id": "O507",
+    "created_at": "2026-09-06"
+  },
+  {
+    "complaint_id": "C008",
+    "text": "I received a smashed keyboard in the box!!!",
+    "customer_id": "U108",
+    "order_id": "O508",
+    "created_at": "2026-09-07"
+  },
+  {
+    "complaint_id": "C009",
+    "text": "There are scratches all over my new water bottle asap",
+    "customer_id": "U109",
+    "order_id": "O509",
+    "created_at": "2026-09-04"
+  },
+  {
+    "complaint_id": "C010",
+    "text": "My water bottle was cracked when it arrived",
+    "customer_id": "U110",
+    "order_id": "O510",
+    "created_at": "2026-09-02"
+  },
+  {
+    "complaint_id": "C011",
+    "text": "I received a smashed monitor in the box",
+    "customer_id": "U111",
+    "order_id": "O511",
+    "created_at": "2026-09-13"
+  },
+  {
+    "complaint_id": "C012",
+    "text": "My backpack arrived damaged.",
+    "customer_id": "U112",
+    "order_id": "O512",
+    "created_at": "2026-09-12"
+  },
+  {
+    "complaint_id": "C013",
+    "text": "My sneakers is faulty, it stopped working after one day",
+    "customer_id": "U113",
+    "order_id": "O513",
+    "created_at": "2026-09-02"
+  },
+  {
+    "complaint_id": "C014",
+    "text": "I received a smashed sneakers in the box",
+    "customer_id": "U114",
+    "order_id": "O514",
+    "created_at": "2026-09-03"
+  },
+  {
+    "complaint_id": "C015",
+    "text": "The delivery is very late and I am still waiting asap",
+    "customer_id": "U115",
+    "order_id": "O515",
+    "created_at": "2026-08-21"
+  },
+  {
+    "complaint_id": "C016",
+    "text": "My order is delayed by two weeks!!!",
+    "customer_id": "U116",
+    "order_id": "O516",
+    "created_at": "2026-08-22"
+  },
+  {
+    "complaint_id": "C017",
+    "text": "My order is delayed by two weeks",
+    "customer_id": "U117",
+    "order_id": "O517",
+    "created_at": "2026-08-06"
+  },
+  {
+    "complaint_id": "C018",
+    "text": "Tracking shows no update and my parcel is delayed asap",
+    "customer_id": "U118",
+    "order_id": "O518",
+    "created_at": "2026-08-09"
+  },
+  {
+    "complaint_id": "C019",
+    "text": "My order was supposed to arrive last week but is late please help",
+    "customer_id": "U119",
+    "order_id": "O519",
+    "created_at": "2026-08-27"
+  },
+  {
+    "complaint_id": "C020",
+    "text": "My package has not arrived yet",
+    "customer_id": "U120",
+    "order_id": "O520",
+    "created_at": "2026-08-26"
+  },
+  {
+    "complaint_id": "C021",
+    "text": "My order is delayed by two weeks!!!",
+    "customer_id": "U121",
+    "order_id": "O521",
+    "created_at": "2026-08-19"
+  },
+  {
+    "complaint_id": "C022",
+    "text": "My order was supposed to arrive last week but is late asap",
+    "customer_id": "U122",
+    "order_id": "O522",
+    "created_at": "2026-09-13"
+  },
+  {
+    "complaint_id": "C023",
+    "text": "My order was supposed to arrive last week but is late!!!",
+    "customer_id": "U123",
+    "order_id": "O523",
+    "created_at": "2026-09-08"
+  },
+  {
+    "complaint_id": "C024",
+    "text": "My order was supposed to arrive last week but is late",
+    "customer_id": "U124",
+    "order_id": "O524",
+    "created_at": "2026-09-24"
+  },
+  {
+    "complaint_id": "C025",
+    "text": "Tracking shows no update and my parcel is delayed",
+    "customer_id": "U125",
+    "order_id": "O525",
+    "created_at": "2026-09-13"
+  },
+  {
+    "complaint_id": "C026",
+    "text": "My order is delayed by two weeks",
+    "customer_id": "U126",
+    "order_id": "O526",
+    "created_at": "2026-09-05"
+  },
+  {
+    "complaint_id": "C027",
+    "text": "I returned the product, where is my refund!!",
+    "customer_id": "U127",
+    "order_id": "O527",
+    "created_at": "2026-08-28"
+  },
+  {
+    "complaint_id": "C028",
+    "text": "I want my money back",
+    "customer_id": "U128",
+    "order_id": "O528",
+    "created_at": "2026-08-26"
+  },
+  {
+    "complaint_id": "C029",
+    "text": "Can you refund me for this purchase",
+    "customer_id": "U129",
+    "order_id": "O529",
+    "created_at": "2026-08-13"
+  },
+  {
+    "complaint_id": "C030",
+    "text": "My refund has not been received after two weeks",
+    "customer_id": "U130",
+    "order_id": "O530",
+    "created_at": "2026-08-17"
+  },
+  {
+    "complaint_id": "C031",
+    "text": "I need a refund for this order",
+    "customer_id": "U131",
+    "order_id": "O531",
+    "created_at": "2026-08-01"
+  },
+  {
+    "complaint_id": "C032",
+    "text": "Can you refund me for this purchase",
+    "customer_id": "U132",
+    "order_id": "O532",
+    "created_at": "2026-09-18"
+  },
+  {
+    "complaint_id": "C033",
+    "text": "I need a refund for this order asap",
+    "customer_id": "U133",
+    "order_id": "O533",
+    "created_at": "2026-09-06"
+  },
+  {
+    "complaint_id": "C034",
+    "text": "My refund has not been received after two weeks",
+    "customer_id": "U134",
+    "order_id": "O534",
+    "created_at": "2026-09-24"
+  },
+  {
+    "complaint_id": "C035",
+    "text": "I need a refund for this order",
+    "customer_id": "U135",
+    "order_id": "O535",
+    "created_at": "2026-09-17"
+  },
+  {
+    "complaint_id": "C036",
+    "text": "I want my money back",
+    "customer_id": "U136",
+    "order_id": "O536",
+    "created_at": "2026-09-17"
+  },
+  {
+    "complaint_id": "C037",
+    "text": "I returned the product, where is my refund!!!",
+    "customer_id": "U137",
+    "order_id": "O537",
+    "created_at": "2026-09-18"
+  },
+  {
+    "complaint_id": "C038",
+    "text": "I returned the product, where is my refund",
+    "customer_id": "U138",
+    "order_id": "O538",
+    "created_at": "2026-09-16"
+  },
+  {
+    "complaint_id": "C039",
+    "text": "Payment failed but money was deducted",
+    "customer_id": "U139",
+    "order_id": "O539",
+    "created_at": "2026-08-27"
+  },
+  {
+    "complaint_id": "C040",
+    "text": "My card was charged but the order is not confirmed.",
+    "customer_id": "U140",
+    "order_id": "O540",
+    "created_at": "2026-08-03"
+  },
+  {
+    "complaint_id": "C041",
+    "text": "Payment failed but money was deducted",
+    "customer_id": "U141",
+    "order_id": "O541",
+    "created_at": "2026-08-25"
+  },
+  {
+    "complaint_id": "C042",
+    "text": "The payment went through but the order failed asap",
+    "customer_id": "U142",
+    "order_id": "O542",
+    "created_at": "2026-08-18"
+  },
+  {
+    "complaint_id": "C043",
+    "text": "I was charged twice for the same order",
+    "customer_id": "U143",
+    "order_id": "O543",
+    "created_at": "2026-09-20"
+  },
+  {
+    "complaint_id": "C044",
+    "text": "I got double charged on my credit card",
+    "customer_id": "U144",
+    "order_id": "O544",
+    "created_at": "2026-09-24"
+  },
+  {
+    "complaint_id": "C045",
+    "text": "My bank account was debited but I see no order",
+    "customer_id": "U145",
+    "order_id": "O545",
+    "created_at": "2026-09-13"
+  },
+  {
+    "complaint_id": "C046",
+    "text": "My bank account was debited but I see no order.",
+    "customer_id": "U146",
+    "order_id": "O546",
+    "created_at": "2026-09-15"
+  },
+  {
+    "complaint_id": "C047",
+    "text": "Payment failed but money was deducted please help",
+    "customer_id": "U147",
+    "order_id": "O547",
+    "created_at": "2026-09-01"
+  },
+  {
+    "complaint_id": "C048",
+    "text": "The payment went through but the order failed!!!",
+    "customer_id": "U148",
+    "order_id": "O548",
+    "created_at": "2026-09-01"
+  },
+  {
+    "complaint_id": "C049",
+    "text": "You sent the wrong item!!",
+    "customer_id": "U149",
+    "order_id": "O549",
+    "created_at": "2026-08-28"
+  },
+  {
+    "complaint_id": "C050",
+    "text": "Wrong size delivered, I ordered a large",
+    "customer_id": "U150",
+    "order_id": "O550",
+    "created_at": "2026-08-09"
+  },
+  {
+    "complaint_id": "C051",
+    "text": "The wrong model was delivered to me!!!",
+    "customer_id": "U151",
+    "order_id": "O551",
+    "created_at": "2026-08-24"
+  },
+  {
+    "complaint_id": "C052",
+    "text": "You shipped a different item than the one on the invoice asap",
+    "customer_id": "U152",
+    "order_id": "O552",
+    "created_at": "2026-08-26"
+  },
+  {
+    "complaint_id": "C053",
+    "text": "This is not what I ordered asap",
+    "customer_id": "U153",
+    "order_id": "O553",
+    "created_at": "2026-09-12"
+  },
+  {
+    "complaint_id": "C054",
+    "text": "This is not what I ordered!!",
+    "customer_id": "U154",
+    "order_id": "O554",
+    "created_at": "2026-09-22"
+  },
+  {
+    "complaint_id": "C055",
+    "text": "The wrong model was delivered to me please help",
+    "customer_id": "U155",
+    "order_id": "O555",
+    "created_at": "2026-09-04"
+  },
+  {
+    "complaint_id": "C056",
+    "text": "I received the wrong product and the wrong color asap",
+    "customer_id": "U156",
+    "order_id": "O556",
+    "created_at": "2026-09-05"
+  },
+  {
+    "complaint_id": "C057",
+    "text": "There is a missing item in my delivery!!!",
+    "customer_id": "U157",
+    "order_id": "O557",
+    "created_at": "2026-08-28"
+  },
+  {
+    "complaint_id": "C058",
+    "text": "An item is missing from my package",
+    "customer_id": "U158",
+    "order_id": "O558",
+    "created_at": "2026-08-28"
+  },
+  {
+    "complaint_id": "C059",
+    "text": "My order is incomplete, one product is missing.",
+    "customer_id": "U159",
+    "order_id": "O559",
+    "created_at": "2026-08-27"
+  },
+  {
+    "complaint_id": "C060",
+    "text": "An item is missing from my package",
+    "customer_id": "U160",
+    "order_id": "O560",
+    "created_at": "2026-09-08"
+  },
+  {
+    "complaint_id": "C061",
+    "text": "I only received part of my order!!!",
+    "customer_id": "U161",
+    "order_id": "O561",
+    "created_at": "2026-09-13"
+  },
+  {
+    "complaint_id": "C062",
+    "text": "An item is missing from my package asap",
+    "customer_id": "U162",
+    "order_id": "O562",
+    "created_at": "2026-09-09"
+  },
+  {
+    "complaint_id": "C063",
+    "text": "There is a missing item in my delivery.",
+    "customer_id": "U163",
+    "order_id": "O563",
+    "created_at": "2026-09-22"
+  },
+  {
+    "complaint_id": "C064",
+    "text": "I received only one of the two items I ordered please help",
+    "customer_id": "U164",
+    "order_id": "O564",
+    "created_at": "2026-09-07"
+  },
+  {
+    "complaint_id": "C065",
+    "text": "I cannot log into my account",
+    "customer_id": "U165",
+    "order_id": "O565",
+    "created_at": "2026-08-02"
+  },
+  {
+    "complaint_id": "C066",
+    "text": "I am unable to update my account details.",
+    "customer_id": "U166",
+    "order_id": "O566",
+    "created_at": "2026-08-16"
+  },
+  {
+    "complaint_id": "C067",
+    "text": "My account was locked for no reason.",
+    "customer_id": "U167",
+    "order_id": "O567",
+    "created_at": "2026-08-03"
+  },
+  {
+    "complaint_id": "C068",
+    "text": "I am locked out of my account",
+    "customer_id": "U168",
+    "order_id": "O568",
+    "created_at": "2026-09-22"
+  },
+  {
+    "complaint_id": "C069",
+    "text": "I am locked out of my account.",
+    "customer_id": "U169",
+    "order_id": "O569",
+    "created_at": "2026-09-08"
+  },
+  {
+    "complaint_id": "C070",
+    "text": "My account was locked for no reason!!",
+    "customer_id": "U170",
+    "order_id": "O570",
+    "created_at": "2026-09-14"
+  },
+  {
+    "complaint_id": "C071",
+    "text": "Customer service was helpful and resolved my issue",
+    "customer_id": "U171",
+    "order_id": "O571",
+    "created_at": "2026-08-11"
+  },
+  {
+    "complaint_id": "C072",
+    "text": "I need an invoice for my purchase",
+    "customer_id": "U172",
+    "order_id": "O572",
+    "created_at": "2026-08-11"
+  },
+  {
+    "complaint_id": "C073",
+    "text": "Your website is a bit confusing to navigate please help",
+    "customer_id": "U173",
+    "order_id": "O573",
+    "created_at": "2026-08-15"
+  },
+  {
+    "complaint_id": "C074",
+    "text": "I need an invoice for my purchase.",
+    "customer_id": "U174",
+    "order_id": "O574",
+    "created_at": "2026-09-19"
+  },
+  {
+    "complaint_id": "C075",
+    "text": "I have a question about my order",
+    "customer_id": "U175",
+    "order_id": "O575",
+    "created_at": "2026-09-17"
+  },
+  {
+    "complaint_id": "C076",
+    "text": "I need an invoice for my purchase",
+    "customer_id": "U176",
+    "order_id": "O576",
+    "created_at": "2026-09-03"
+  },
+  {
+    "complaint_id": "C077",
+    "text": "Your website is a bit confusing to navigate asap",
+    "customer_id": "U177",
+    "order_id": "O577",
+    "created_at": "2026-09-18"
+  }
+]
