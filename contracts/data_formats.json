@@ -1,0 +1,18 @@
+{
+  "complaint": {
+    "required": ["complaint_id", "text", "customer_id", "order_id", "timestamp"],
+    "optional": ["clean_text", "issue_type", "sentiment", "severity", "cluster", "status"]
+  },
+  "order": {
+    "required": ["order_id", "status", "amount", "item"],
+    "optional": ["customer_id", "delivery_date", "payment_status", "return_window_open", "seller"]
+  },
+  "trend": {
+    "required": ["cluster_name", "count", "growth_percent"],
+    "optional": ["severity", "category", "representative_complaints", "hypotheses"]
+  },
+  "recommendation": {
+    "required": ["complaint_id", "summary", "action", "reason", "customer_message", "confidence", "escalate", "missing_information"],
+    "optional": ["evidence", "policy_ref", "executed", "executed_action", "approval_status"]
+  }
+}
